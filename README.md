@@ -46,7 +46,7 @@ graph TD
     style J fill:#f44,stroke:#333,stroke-width:4px
 ```
 
-## シナリオ Walkthrough: VBIED Drop-off
+##  Walkthrough: VBIED Drop-off
 
 Here's how the layers work together to detect a complex threat, visualized as a state machine.
 
