@@ -2,7 +2,6 @@
 # 🛡️ CSES - City Security Evaluation System (Algorithm for Threat Detection)
 
 ![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Status](https://img.shields.io/badge/status-simulation_complete-green.svg)
 
 **CSES** is a Python implementation of an advanced, multi-layered algorithm for real-time threat detection from object detection data. It is designed to be robust, context-aware, and adaptable, moving beyond simple rule-based systems to a more sophisticated approach suitable for security, police, and military applications.
@@ -49,7 +48,6 @@ graph TD
 ##  Walkthrough: VBIED Drop-off
 
 Here's how the layers work together to detect a complex threat, visualized as a state machine.
-
 ```mermaid
 stateDiagram-v2
     [*] --> Tracking
@@ -59,28 +57,25 @@ stateDiagram-v2
     Separation --> THREAT_CONFIRMED : "Separation" condition met
     THREAT_CONFIRMED --> [*]
 
-    state Anomalous_Stop {
-        direction LR
-        [*] --> state1
-        state1 : Threat Probability * 10
-    }
-    state Driver_Exit {
-        direction LR
-        [*] --> state2
-        state2 : Threat Probability * 50
-    }
-    state Separation {
-        direction LR
-        [*] --> state3
-        state3 : Threat Probability * 100
-    }
-    state THREAT_CONFIRMED {
-        note right of THREAT_CONFIRMED
-            Final Probability > 95%
-            Generate CRITICAL Alert!
-        end note
-    }
-```
+    note right of Anomalous_Stop
+        Threat Probability
+        is multiplied (e.g., x10)
+    end note
+
+    note right of Driver_Exit
+        Belief in threat is
+        multiplied again (e.g., x50)
+    end note
+
+    note right of Separation
+        Final critical multiplier
+        is applied (e.g., x100)
+    end note
+
+    note right of THREAT_CONFIRMED
+        Final Probability > 95%
+        Generate CRITICAL Alert!
+    end note
 
 ## 🚀 Getting Started
 
